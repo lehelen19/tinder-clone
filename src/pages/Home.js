@@ -17,6 +17,7 @@ const Home = () => {
       <NavBar
         minimal={false}
         authToken={authToken}
+        showModal={showModal}
         setShowModal={setShowModal}
       />
       <div className="home">

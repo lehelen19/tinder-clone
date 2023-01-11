@@ -55,6 +55,11 @@ nav .nav-btn {
   border-radius: 10px;
 }
 
+nav .nav-btn:disabled {
+  color: rgb(189, 42, 90);
+  background-color: rgb(181, 180, 180);
+}
+
 /* Home page */
 .overlay {
   width: 100vw;
