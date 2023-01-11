@@ -3,6 +3,7 @@
 body {
   margin: 0;
   padding: 0;
+  text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -13,3 +14,19 @@ body {
 code {
   font-family: 'Readex Pro', sans-serif;
 }
+
+.primary-btn {
+  color: white;
+  background: linear-gradient(45deg, #fe3072, #ff5940);
+  text-transform: uppercase;
+  font-size: 0.938rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(260deg, #fe3072, #ff5940);
+}
+
+/* Navbar */

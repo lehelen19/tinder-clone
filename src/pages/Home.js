@@ -9,7 +9,7 @@ const Home = () => {
   };
   return (
     <>
-      <NavBar />
+      <NavBar minimal={true} />
       <h1>Swipe Right®</h1>
       <button className="primary-btn" onClick={handleClick}>
         {authToken ? 'Sign out' : 'Creat account'}
