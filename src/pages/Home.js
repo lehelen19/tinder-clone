@@ -8,13 +8,13 @@ const Home = () => {
     console.log('Primary button clicked');
   };
   return (
-    <>
-      <NavBar minimal={true} />
+    <div className="overlay">
+      <NavBar minimal={false} authToken={authToken} />
       <h1>Swipe Right®</h1>
       <button className="primary-btn" onClick={handleClick}>
         {authToken ? 'Sign out' : 'Creat account'}
       </button>
-    </>
+    </div>
   );
 };
 
