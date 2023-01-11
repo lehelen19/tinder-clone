@@ -14,7 +14,11 @@ const Home = () => {
 
   return (
     <div className="overlay">
-      <NavBar minimal={false} authToken={authToken} />
+      <NavBar
+        minimal={false}
+        authToken={authToken}
+        setShowModal={setShowModal}
+      />
       <div className="home">
         <h1>Swipe Right®</h1>
         <button className="primary-btn" onClick={handleClick}>
