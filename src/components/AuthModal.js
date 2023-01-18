@@ -23,7 +23,7 @@ const AuthModal = ({ setShowModal }) => {
       </button>
       <h2>{isSignUp ? 'Create Account' : 'Log In'}</h2>
       <p>
-        By clicking this button you agree to our terms. Learn how we process
+        By clicking this button, you agree to our terms. Learn how we process
         your data in our Privacy Policy and Cookie Policy.
       </p>
       <form onSubmit={handleSubmit}>
@@ -31,10 +31,28 @@ const AuthModal = ({ setShowModal }) => {
           type="email"
           id="email"
           name="email"
-          placeholder="Email"
+          placeholder="email"
           required={true}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="password"
+          required={true}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="password-check"
+          id="password-check"
+          name="password-check"
+          placeholder="confirm password"
+          required={true}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <input type="submit" className="secondary-btn" />
+        <p>{error}</p>
       </form>
       AUTH MODAL
     </div>

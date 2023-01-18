@@ -29,6 +29,23 @@ code {
   background: linear-gradient(260deg, rgb(254, 48, 114), rgb(225, 89, 64));
 }
 
+.secondary-btn {
+  color: rgb(121, 119, 119);
+  background-color: white;
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: solid 2px rgb(121, 119, 119);
+  margin: 6px;
+}
+
+.secondary-btn:hover {
+  color: rgb(48, 48, 48);
+  border: solid 2px rgb(48, 48, 48);
+}
+
 /* Navbar */
 nav {
   width: 100%;
