@@ -86,3 +86,7 @@ nav .nav-btn:disabled {
   border-radius: 10px;
   padding: 40px;
 }
+
+.auth-modal .close-icon {
+  float: right;
+}
