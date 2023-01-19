@@ -2,10 +2,11 @@ import { useState } from 'react';
 import NavBar from '../components/NavBar';
 
 const Onboarding = () => {
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log('submitted');
   };
-  const handleChange = () => {
+  const handleChange = (e) => {
     console.log('changed');
   };
   return (
@@ -15,6 +16,7 @@ const Onboarding = () => {
         <h2>Create Account</h2>
         <form onSubmit={handleSubmit}>
           <section>
+            {/* PERSONAL INFO */}
             {/* NAME */}
             <label htmlFor="first_name">First name</label>
             <input
@@ -91,7 +93,7 @@ const Onboarding = () => {
                 checked={false}
                 onChange={handleChange}
               />
-              <label htmlFor="male-gender-identity">More</label>
+              <label htmlFor="more-gender-identity">More</label>
             </fieldset>
             <label htmlFor="show-gender">Show gender on my profile</label>
             <input
@@ -101,6 +103,64 @@ const Onboarding = () => {
               checked={false}
               onChange={handleChange}
             />
+
+            {/* GENDER INTEREST */}
+            <label>Show me</label>
+            <fieldset>
+              <legend>Partner Gender Preference</legend>
+              <input
+                type="radio"
+                id="male-gender-interest"
+                name="gender_interest"
+                value="male"
+                checked={false}
+                onChange={handleChange}
+              />
+              <label htmlFor="male-gender-interest">Male</label>
+              <input
+                type="radio"
+                id="female-gender-interest"
+                name="gender_interest"
+                value="female"
+                checked={false}
+                onChange={handleChange}
+              />
+              <label htmlFor="male-gender-interest">Female</label>
+              <input
+                type="radio"
+                id="everyone-gender-interest"
+                name="gender_interest"
+                value="everyone"
+                checked={false}
+                onChange={handleChange}
+              />
+              <label htmlFor="more-gender-interest">Everyone</label>
+            </fieldset>
+
+            <label htmlFor="about">About me</label>
+            <input
+              type="text"
+              id="about"
+              name="about"
+              required={true}
+              placeholder="I climb 3x a week!"
+              value={''}
+              onChange={handleChange}
+            />
+            <input type="submit" />
+          </section>
+
+          <section>
+            {/* PROFILE PICTURE */}
+            <label>Profile Picture</label>
+            <input
+              type="url"
+              id="url"
+              name="url"
+              required={true}
+              onChange={handleChange}
+            />
+            <div className="photo-container"></div>
           </section>
         </form>
       </div>
