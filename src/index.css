@@ -108,7 +108,7 @@ nav .nav-btn:disabled {
   margin-left: auto;
   margin-right: auto;
   max-width: 360px;
-  height: 600px;
+  height: 500px;
   background-color: white;
   border-radius: 10px;
   padding: 40px;
@@ -128,4 +128,9 @@ nav .nav-btn:disabled {
   padding: 8px;
   margin: 8px;
   font-size: 17px;
+}
+
+/* Onboarding */
+fieldset {
+  border: none;
 }
