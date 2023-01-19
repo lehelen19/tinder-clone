@@ -24,7 +24,7 @@ const Home = () => {
         setIsSignUp={setIsSignUp}
       />
       <div className="home">
-        <h1>Swipe Right®</h1>
+        <h1 className="primary-title">Swipe Right®</h1>
         <button className="primary-btn" onClick={handleClick}>
           {authToken ? 'Sign out' : 'Create account'}
         </button>
