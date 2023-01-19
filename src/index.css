@@ -91,6 +91,8 @@ nav .nav-btn:disabled {
       rgba(0, 0, 0, 0) 100%
     ),
     url('images/6e9794bcedeecf5a8f8f41338a2a7345.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .home {
