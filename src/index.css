@@ -183,6 +183,10 @@ nav .nav-btn:disabled {
   display: none;
 }
 
+.onboarding form input[type='number'] {
+  width: 10%;
+}
+
 .onboarding form input[type='radio']:checked + label {
   border: solid 2px rgb(221, 39, 22);
 }
