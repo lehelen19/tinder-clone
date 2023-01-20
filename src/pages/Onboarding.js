@@ -2,12 +2,30 @@ import { useState } from 'react';
 import NavBar from '../components/NavBar';
 
 const Onboarding = () => {
+  const [formData, setFormData] = useState({
+    user_id: '',
+    first_name: '',
+    dob_day: '',
+    dob_month: '',
+    dob_year: '',
+    show_gender: false,
+    gender_identity: 'male',
+    gender_interest: 'female',
+    email: '',
+    url: '',
+    about: '',
+    matches: [],
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('submitted');
   };
   const handleChange = (e) => {
-    console.log('changed');
+    console.log(e);
+    const value = e.target.value;
+    const name = e.target.name;
+    console.log(value, name);
   };
   return (
     <>
@@ -81,10 +99,10 @@ const Onboarding = () => {
                 id="female-gender-identity"
                 name="gender_identity"
                 value="female"
-                checked={true}
+                checked={false}
                 onChange={handleChange}
               />
-              <label htmlFor="male-gender-identity">Female</label>
+              <label htmlFor="female-gender-identity">Female</label>
               <input
                 type="radio"
                 id="more-gender-identity"
@@ -125,7 +143,7 @@ const Onboarding = () => {
                 checked={false}
                 onChange={handleChange}
               />
-              <label htmlFor="male-gender-interest">Female</label>
+              <label htmlFor="female-gender-interest">Female</label>
               <input
                 type="radio"
                 id="everyone-gender-interest"
@@ -134,7 +152,7 @@ const Onboarding = () => {
                 checked={false}
                 onChange={handleChange}
               />
-              <label htmlFor="more-gender-interest">Everyone</label>
+              <label htmlFor="everyone-gender-interest">Everyone</label>
             </fieldset>
 
             <label htmlFor="about">About me</label>
