@@ -65,7 +65,7 @@ const Onboarding = () => {
             </fieldset>
 
             {/* GENDER */}
-            <fieldset>
+            <fieldset className="gender">
               <legend>Gender</legend>
               <input
                 type="radio"
@@ -81,7 +81,7 @@ const Onboarding = () => {
                 id="female-gender-identity"
                 name="gender_identity"
                 value="female"
-                checked={false}
+                checked={true}
                 onChange={handleChange}
               />
               <label htmlFor="male-gender-identity">Female</label>
@@ -106,7 +106,7 @@ const Onboarding = () => {
 
             {/* GENDER INTEREST */}
             <label>Show me</label>
-            <fieldset>
+            <fieldset className="gender">
               <legend>Partner Gender Preference</legend>
               <input
                 type="radio"
