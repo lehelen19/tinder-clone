@@ -131,6 +131,10 @@ nav .nav-btn:disabled {
 }
 
 /* Onboarding */
+.onboarding {
+  border-top: solid 1px rgb(165, 159, 159);
+}
+
 .onboarding form {
   display: flex;
   justify-content: center;
@@ -187,6 +191,11 @@ nav .nav-btn:disabled {
   width: 10%;
 }
 
+.onboarding form input[type='checkbox'] {
+  vertical-align: middle;
+  margin-left: 20px;
+}
+
 .onboarding form input[type='radio']:checked + label {
   border: solid 2px rgb(221, 39, 22);
 }
@@ -197,4 +206,12 @@ nav .nav-btn:disabled {
 
 .onboarding form input[type='submit']:active {
   background-color: rgb(226, 115, 155);
+}
+
+.hidden {
+  display: none;
+}
+
+.onboarding form .photo-container img {
+  width: 100%;
 }

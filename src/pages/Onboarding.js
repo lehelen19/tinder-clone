@@ -21,12 +21,19 @@ const Onboarding = () => {
     e.preventDefault();
     console.log('submitted');
   };
+
   const handleChange = (e) => {
     console.log(e);
-    const value = e.target.value;
+    const value =
+      e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     const name = e.target.name;
-    console.log(value, name);
+
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
+
   return (
     <>
       <NavBar minimal={true} showModal={false} setShowModal={() => {}} />
@@ -43,7 +50,7 @@ const Onboarding = () => {
               name="first_name"
               placeholder="First name"
               required={true}
-              value={''}
+              value={formData.first_name}
               onChange={handleChange}
             />
 
@@ -57,7 +64,7 @@ const Onboarding = () => {
                 name="dob_day"
                 placeholder="DD"
                 required={true}
-                value={''}
+                value={formData.dob_day}
                 onChange={handleChange}
               />
               <label htmlFor="dob_month"></label>
@@ -67,7 +74,7 @@ const Onboarding = () => {
                 name="dob_month"
                 placeholder="MM"
                 required={true}
-                value={''}
+                value={formData.dob_month}
                 onChange={handleChange}
               />
               <label htmlFor="birth year"></label>
@@ -77,7 +84,7 @@ const Onboarding = () => {
                 name="dob_year"
                 placeholder="YYYY"
                 required={true}
-                value={''}
+                value={formData.dob_year}
                 onChange={handleChange}
               />
             </fieldset>
@@ -90,7 +97,7 @@ const Onboarding = () => {
                 id="male-gender-identity"
                 name="gender_identity"
                 value="male"
-                checked={false}
+                checked={formData.gender_identity === 'male'}
                 onChange={handleChange}
               />
               <label htmlFor="male-gender-identity">Male</label>
@@ -99,7 +106,7 @@ const Onboarding = () => {
                 id="female-gender-identity"
                 name="gender_identity"
                 value="female"
-                checked={false}
+                checked={formData.gender_identity === 'female'}
                 onChange={handleChange}
               />
               <label htmlFor="female-gender-identity">Female</label>
@@ -108,30 +115,32 @@ const Onboarding = () => {
                 id="more-gender-identity"
                 name="gender_identity"
                 value="more"
-                checked={false}
+                checked={formData.gender_identity === 'more'}
                 onChange={handleChange}
               />
               <label htmlFor="more-gender-identity">More</label>
             </fieldset>
-            <label htmlFor="show-gender">Show gender on my profile</label>
-            <input
-              type="checkbox"
-              id="show-gender"
-              name="show_gender"
-              checked={false}
-              onChange={handleChange}
-            />
+            <label htmlFor="show-gender">
+              Show gender on my profile
+              <input
+                type="checkbox"
+                id="show-gender"
+                name="show_gender"
+                checked={formData.show_gender}
+                onChange={handleChange}
+              />
+            </label>
 
             {/* GENDER INTEREST */}
             <label>Show me</label>
             <fieldset className="gender">
-              <legend>Partner Gender Preference</legend>
+              <legend className="hidden">Partner Gender Preference</legend>
               <input
                 type="radio"
                 id="male-gender-interest"
                 name="gender_interest"
                 value="male"
-                checked={false}
+                checked={formData.gender_interest === 'male'}
                 onChange={handleChange}
               />
               <label htmlFor="male-gender-interest">Male</label>
@@ -140,7 +149,7 @@ const Onboarding = () => {
                 id="female-gender-interest"
                 name="gender_interest"
                 value="female"
-                checked={false}
+                checked={formData.gender_interest === 'female'}
                 onChange={handleChange}
               />
               <label htmlFor="female-gender-interest">Female</label>
@@ -149,7 +158,7 @@ const Onboarding = () => {
                 id="everyone-gender-interest"
                 name="gender_interest"
                 value="everyone"
-                checked={false}
+                checked={formData.gender_interest === 'everyone'}
                 onChange={handleChange}
               />
               <label htmlFor="everyone-gender-interest">Everyone</label>
@@ -162,7 +171,7 @@ const Onboarding = () => {
               name="about"
               required={true}
               placeholder="I climb 3x a week!"
-              value={''}
+              value={formData.about}
               onChange={handleChange}
             />
             <input type="submit" />
@@ -178,7 +187,9 @@ const Onboarding = () => {
               required={true}
               onChange={handleChange}
             />
-            <div className="photo-container"></div>
+            <div className="photo-container">
+              <img src={formData.url} alt="Profile picture preview" />
+            </div>
           </section>
         </form>
       </div>
