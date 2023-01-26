@@ -22,7 +22,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
         return;
       }
       // POST request to backend
-      const response = await axios.post('https://localhost:8000/signup', {
+      const response = await axios.post('http://localhost:8000/signup', {
         email,
         password,
       });
