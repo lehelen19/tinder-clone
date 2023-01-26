@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const AuthModal = ({ setShowModal, isSignUp }) => {
   const [email, setEmail] = useState(null);
@@ -6,17 +8,28 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
 
+  let navigate = useNavigate();
+
   const handleClick = () => {
     setShowModal(false);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // don't want page to refresh
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // prevent default page refresh
     try {
       if (isSignUp && password !== confirmPassword) {
         setError('Passwords need to match!');
+        return;
       }
-      console.log('Make a POST request to the database.');
+      // POST request to backend
+      const response = await axios.post('https://localhost:8000/signup', {
+        email,
+        password,
+      });
+      if (response.status === 201) {
+        // Upon success, navigate to onboarding page
+        navigate('/onboarding');
+      }
     } catch (error) {
       console.log(error);
     }

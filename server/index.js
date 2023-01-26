@@ -1,5 +1,6 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
+const { v4: uuidv4 } = require('uuid');
 const uri = `mongodb+srv://helen:cat123@cluster0.hec6gyb.mongodb.net/?retryWrites=true&w=majority`;
 
 const app = express();
@@ -10,7 +11,10 @@ app.get('/', (req, res) => {
   res.json('Hello app');
 });
 
-app.post('/signup', (req, res) => {});
+app.post('/signup', (req, res) => {
+  const { email, password } = req.body;
+  const generatedUserId = uuidv4();
+});
 
 app.get('/users', async (req, res) => {
   const client = new MongoClient(uri);
