@@ -24,19 +24,25 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
         return;
       }
       // POST request to backend
-      const response = await axios.post('http://localhost:8000/signup', {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `http://localhost:8000/${isSignUp ? 'signup' : 'login'}`,
+        {
+          email,
+          password,
+        }
+      );
 
       // set cookies for user based on email, userId, and token
       setCookie('Email', response.data.email);
       setCookie('UserId', response.data.userId);
       setCookie('AuthToken', response.data.token);
 
-      if (response.status === 201) {
-        // Upon success, navigate to onboarding page
+      if (response.status === 201 && isSignUp) {
+        // upon sign up success, navigate to onboarding page
         navigate('/onboarding');
+      } else if (response.status === 201) {
+        // upon log in success, navigate to dashboard
+        navigate('/dashboard');
       }
     } catch (error) {
       console.log(error);
