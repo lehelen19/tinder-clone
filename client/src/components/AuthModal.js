@@ -32,9 +32,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
         }
       );
 
-      // set cookies for user based on email, userId, and token
-      setCookie('Email', response.data.email);
-      setCookie('UserId', response.data.userId);
+      // set cookies for user based on token
       setCookie('AuthToken', response.data.token);
 
       if (response.status === 201 && isSignUp) {
