@@ -188,7 +188,9 @@ const Onboarding = () => {
               onChange={handleChange}
             />
             <div className="photo-container">
-              <img src={formData.url} alt="Profile picture preview" />
+              {formData.url && (
+                <img src={formData.url} alt="Profile picture preview" />
+              )}
             </div>
           </section>
         </form>
