@@ -48,7 +48,7 @@ app.post('/signup', async (req, res) => {
     // Generate a token to stay logged into app
     const token = jwt.sign(insertedUser, sanitizedEmail, { expiresIn: 1440 });
 
-    res.status(201).json({ token });
+    res.status(201).json({ token, userId: generatedUserId });
   } catch (err) {
     console.log(err);
   } finally {
@@ -72,7 +72,7 @@ app.post('/login', async (req, res) => {
     if (user && isCorrectPassword) {
       // create token
       const token = jwt.sign(user, email, { expiresIn: 1440 });
-      res.status(201).json({ token });
+      res.status(201).json({ token, userId: user.user_id });
     }
     res.status(400).send('Invalid credentials');
   } catch (err) {
@@ -94,6 +94,18 @@ app.get('/users', async (req, res) => {
   } finally {
     await client.close();
   }
+});
+
+app.put('/user', async (req, res) => {
+  const client = new MongoClient(uri);
+  const formData = req.body.formData;
+  // try {
+  //   await client.connect();
+  //   const database = client.db('app-data');
+  //   const users = database.collection('users');
+
+  //   const query = {user_id: formData.user_id}
+  // }
 });
 
 app.listen(PORT, () => {

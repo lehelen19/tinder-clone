@@ -32,8 +32,9 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
         }
       );
 
-      // set cookies for user based on token
+      // set cookies for user based on token and user id
       setCookie('AuthToken', response.data.token);
+      setCookie('UserId', response.data.userId);
 
       if (response.status === 201 && isSignUp) {
         // upon sign up success, navigate to onboarding page
