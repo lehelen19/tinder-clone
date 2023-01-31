@@ -9,10 +9,6 @@ const Dashboard = () => {
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
   const [lastDirection, setLastDirection] = useState();
 
-  useEffect(() => {
-    getUser();
-  }, []);
-
   const userId = cookies.userId;
 
   const getUser = async () => {
@@ -26,6 +22,10 @@ const Dashboard = () => {
     }
   };
 
+  useEffect(() => {
+    getUser();
+  }, []);
+
   const swiped = (direction, nameToDelete) => {
     console.log('removing: ' + nameToDelete);
     setLastDirection(direction);
@@ -37,8 +37,8 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      {/* <ChatContainer />
-      <div className="swipe-container">
+      <ChatContainer user={user} />
+      {/* <div className="swipe-container">
         <div className="card-container">
           {characters.map((character) => (
             <TinderCard
