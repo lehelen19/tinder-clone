@@ -36,11 +36,13 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard">
-      <ChatContainer user={user} />
-      {/* <div className="swipe-container">
-        <div className="card-container">
-          {characters.map((character) => (
+    <>
+      {user && (
+        <div className="dashboard">
+          <ChatContainer user={user} />
+          <div className="swipe-container">
+            <div className="card-container">
+              {/* {characters.map((character) => (
             <TinderCard
               className="swipe"
               key={character.name}
@@ -54,13 +56,15 @@ const Dashboard = () => {
                 <h3>{character.name}</h3>
               </div>
             </TinderCard>
-          ))}
-          <div className="swipe-info">
-            {lastDirection ? <p>You swiped {lastDirection}</p> : <p />}
+          ))} */}
+              <div className="swipe-info">
+                {lastDirection ? <p>You swiped {lastDirection}</p> : <p />}
+              </div>
+            </div>
           </div>
         </div>
-      </div> */}
-    </div>
+      )}
+    </>
   );
 };
 
